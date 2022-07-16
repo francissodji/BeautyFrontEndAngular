@@ -1,0 +1,30 @@
+
+hr.solid {
+    border-top: 3px solid rgb(7, 7, 7);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+
+.table{
+    width: 100%;
+}
+
+.radioGroup {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    align-items: flex-start;
+}
+  
+.radioButton {
+    margin: 5px;
+}
+
+.tdCenter {
+    text-align: center;
+}
+

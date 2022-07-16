@@ -1,0 +1,188 @@
+<div>
+    <!--********************* Search elements *********************-->
+    <div class="container">
+        <div style="border: 2px;">
+            
+            <form>
+                <table>
+                    <tr>
+                        <!--*******************Search field-->
+
+                        <td align="left">
+                            <div class="col cod-md-2">
+                                <button mat-raised-button color="accent" (click)="openNewCustomerDialog()">Register</button>
+                            </div>
+                        </td>
+
+                        <td align="right">
+                            <div class="col cod-md-8">
+                                <mat-form-field color="accent" appearance="fill">
+                                    <input matInput name="clientPhonesearch" placeholder="Cell phone number" [(ngModel)]="clientCellNumToSearch">
+                                </mat-form-field>
+                            </div>
+                        </td>
+                        
+                        
+                        <td align="left">
+
+                            <div>
+                                <button style="margin-left: 5px;" mat-raised-button color="primary" name="btSave" (click)="searchClientByPhone()">Search</button>
+                            </div>
+                            <!--
+                            <div mat-dialog-actions class="col cod-md-2">
+                                <button mat-raised-button color="primary" (click)="searchClientByPhone()">Search</button>
+                            </div>
+                            -->
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <!--********************* Client found - Welcome *********************-->
+    <div class="container">
+        <div style="border: 2px;">
+            <div> <hr class="solid"> </div>
+                <div >
+                    <table>
+                        <tr>
+                            <td>{{welcome}}</td>
+                            <td class="clientnamedisplay" align="center"><b>{{clientFullName}} </b></td>
+                        
+                            <td align="right"><button mat-raised-button (click)="openNewAppointmentDialog(theFoundCustomer)">New Appointment</button></td>
+                        </tr>
+                    </table>
+                </div>
+            <div> <hr class="solid"> </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div>
+            <table class="table table-hover table-dark">
+                <thead class="thead-light"> 
+                    <tr>
+                        <td>Date </td>
+                        <td>Time</td>
+                        <td>Style</td>
+                        <td>Size</td>
+                        <td>Length</td>
+                        <td>Service</td>
+                        <td>Take Down</td>
+                        <td>Total Cost</td>
+                        <td align="center">Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+        
+                    <tr *ngFor="let appoint of listAppoints">
+                        <td>{{ appoint.dateAppoint | date: 'MM/dd/yyyy'}}</td>
+                        <td>{{ appoint.dateAppoint | date: 'h:mm a'}}</td>
+                        <td>{{ appoint.desigStyle }}</td>
+                        <td>{{ appoint.titleSize }}</td>
+                        <td>{{ appoint.titleExtrat }}</td>
+                        <td>{{ appoint.serviceTitle }}</td>
+                        <td align="center">{{ appoint.takeDownTitle }}</td>
+                        <td>{{ appoint.totalCostBraiding | currency }}</td>
+                    
+                        <td align="center">
+                            <!--<a [routerLink] = "['/editadminmedecine', appoint.idAppoint]" class="btn btn-primary">Confirm Appoint.</a>-->
+                            <button mat-raised-button color="warm" (click)="editAppointmentDialog(appoint)">Confirm Appointment</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!--************************************-->
+<!--
+<div class="container">
+    <div style="margin-top: 5px;">
+        <mat-form-field appearance="standard">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+        </mat-form-field>
+          
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="listclientOpenAppoints" matSort>
+            
+               
+                <ng-container matColumnDef="DateAppoint">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+                    <td mat-cell *matCellDef="let row"> {{row.DateAppoint}} </td>
+                </ng-container>
+            
+               
+                <ng-container matColumnDef="desigStyle">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Style </th>
+                    <td mat-cell *matCellDef="let row"> {{row.desigStyle}} </td>
+                </ng-container>
+            
+                
+                <ng-container matColumnDef="titleSize">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Size </th>
+                    <td mat-cell *matCellDef="let row"> {{row.titleSize}} </td>
+                </ng-container>
+            
+                
+                <ng-container matColumnDef="titleExtrat">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Length </th>
+                    <td mat-cell *matCellDef="let row"> {{row.titleExtrat}} </td>
+                </ng-container>
+
+               
+                <ng-container matColumnDef="typeservice">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Service </th>
+                    <td mat-cell *matCellDef="let row"> {{row.typeservice}} </td>
+                </ng-container>
+
+                
+                <ng-container matColumnDef="addTakeOffAppoint">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Takeoff ? </th>
+                    <td mat-cell *matCellDef="let row"> {{row.addTakeOffAppoint}} </td>
+                </ng-container>
+            
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            
+                
+                <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                </tr>
+            </table>
+        
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+        </div>
+    </div>
+</div>
+-->
+<!--*********************Display list of client's open appointment ******************-->
+
+
+    
+
+
+
+
+
+<!--
+<div>
+    <form [formGroup]="formSearch">
+        <table>
+            <tr>
+                <td>
+                    <mat-form-field class="fieldReference" appearance="outline">
+                        <input type="text" formControlName = "clientSearchCellNum" matInput name="firstNameCust" placeholder="First name" >
+                    </mat-form-field>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" (click)="searchClientByPhone()">Register</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+-->

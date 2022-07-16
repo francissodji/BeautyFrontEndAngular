@@ -1,0 +1,91 @@
+<p>
+    <mat-toolbar color="primary">
+
+      <!--******************-->
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+        <span>MAHB-Appointment Management System</span>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink = '/home'>
+          <mat-icon> home</mat-icon>
+          <span>home</span>
+        </button>
+        <button mat-menu-item routerLink = '/appointmbystatus'>
+          <mat-icon> A</mat-icon>
+          <span>All appointments</span>
+        </button>
+
+        <div *ngIf="!user?.IDUser">
+          <button mat-menu-item routerLink = '/login'>
+            <span>Login</span>
+          </button>
+        </div>
+        
+
+
+        <div class="col md-6" mat-dialog-action [align]="'left'" *ngIf="!user?.IDUser">
+          <button style="margin-left: 5px;" mat-raised-button color="primary" name="btSave" (click)="login()">Save</button>
+        </div>
+
+        <!--
+        <div *ngIf="!user?.IDUser" align="right">
+          <button mat-menu-item>
+            <mat-icon>Out</mat-icon>
+            <span></span>
+          </button>
+          <a routerLink='login'>Log in</a>
+        </div>
+        -->
+
+        <div *ngIf="user?.IDUser" align="right">
+          User: {{user?.Username}} |  
+          <a href="#" (click)="logout($event)">Logout</a> 
+        </div>
+      </mat-menu>
+      <!--**********************************-->
+      <!--
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>
+          
+          menu</mat-icon>
+      </button>
+      <span class="example-spacer"></span>
+
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>home</mat-icon>
+      </button>
+      -->
+      <!--
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button>
+      -->
+    </mat-toolbar>
+  </p>
+
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        <router-outlet>
+            <!--This is the placeholder to render your views here.. -->
+       </router-outlet>
+    </div>
+</div>
+
+<footer class="page-footer font-small blue pt-4">
+
+  
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2022 ARobase</div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->

@@ -1,0 +1,134 @@
+<div mat-dialog-header class="container"><h2>Appointment Confirmation</h2></div>
+<div> <hr class="solid"> </div>
+<div mat-dialog-content>
+    <!--**********************FORM HERE-->
+    
+    <form [formGroup]="newAppointForm">
+        <table cellspacing="5"> 
+            <tr>
+                <!--
+                <td class="col col-md-4">
+                    <mat-form-field color="accent" appearance="outline">
+                        <mat-label>Date Appoint.</mat-label>
+                        <input matInput [matDatepicker]="DateAppoint" formControlName = "DateAppoint" name="DateAppoint" [(ngModel)]="dateOfAppointm">
+                        <mat-datepicker-toggle matSuffix [for]="DateAppoint"></mat-datepicker-toggle>
+                        <mat-datepicker #DateAppoint></mat-datepicker>
+                    </mat-form-field>
+                    <mat-error *ngIf="newAppointForm.controls['DateAppoint'].invalid && (newAppointForm.controls['DateAppoint'].dirty || newAppointForm.controls['DateAppoint'].touched)" class="alert">
+                        Date is required
+                    </mat-error>
+                </td>
+                -->
+                <!--
+                <td class="col col-md-4">
+                    <input type="datetime-local" formControlName = "DateAppoint" name="DateAppoint" #inputTime (change)="onChangeTime(inputTime.value)" min="{{minDateTime}}" [(ngModel)]="selectedDateTime">  
+                </td>
+                -->
+                <td>
+                    <div class="col-md-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Service</mat-label>
+                                <mat-select formControlName = "Typeservice" name="typeService" placeholder="Select a service" 
+                                    (selectionChange)="onServiceSelection($event.value)" [(ngModel)]="selectedSevice">
+                                <mat-option *ngFor="let typServ of typeServs" [value]= "typServ.idTypeService">{{typServ.designTypeService}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </td>
+                <td>
+                    <div class="col-md-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Take down?</mat-label>
+                                <mat-select formControlName = "AddTakeOffAppoint" name="addaTakeOff" placeholder="Add Take Off?"
+                                    (selectionChange)="onTakedownSelection($event.value)" [(ngModel)]="selectedTakedown">
+                                <mat-option *ngFor="let toff of addTakeOff" [value]= "toff.idTakeOff">{{toff.designTakeOff}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </td>
+            </tr>
+            <tr><!--***************Style Size Length**********-->
+                <td>
+                    <div class="col-md-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Style</mat-label>
+                                <mat-select formControlName = "IDStyleAppoint" name="typeStyle" placeholder="Select a style"
+                                    (selectionChange)="LoadInfoForTheSelectedStyle($event.value)" [(ngModel)]="selectedIdStyle">
+                                <mat-option *ngFor="let style of styles" [value]= "style.idStyle">{{style.desigStyle}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-error *ngIf="newAppointForm.controls['IDStyleAppoint'].invalid && (newAppointForm.controls['IDStyleAppoint'].dirty || newAppointForm.controls['IDStyleAppoint'].touched)" class="alert">
+                            Style is required
+                        </mat-error>
+                    </div>
+                </td>
+                <td> <!--Size-->
+                    <div class="col-md-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Size</mat-label>
+                            <mat-select formControlName = "IdSizeAppoint" name="sizeStyle" placeholder="Select a size" 
+                                    (selectionChange)="listAllLengthPerStyleAndSize($event.value, selectedIdStyle)" [(ngModel)]="selectedIdSize">
+                                <mat-option *ngFor="let size of sizes" [value]= "size.idSize"> {{size.titleSize}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-error *ngIf="newAppointForm.controls['IdSizeAppoint'].invalid && (newAppointForm.controls['IdSizeAppoint'].dirty || newAppointForm.controls['IdSizeAppoint'].touched)" class="alert">
+                            Size is required
+                        </mat-error>
+                    </div>
+                </td>
+                <td>
+                    <div class="col-md-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Length</mat-label>
+                                <mat-select formControlName = "IDLenghtAppoint" name="lenghtStyle" placeholder="Select a length" 
+                                    [(ngModel)]="selectedIdLength">
+                                <mat-option *ngFor="let length of lengths" [value]= "length.idExtrat"> {{length.titleExtrat}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-error *ngIf="newAppointForm.controls['IDLenghtAppoint'].invalid && (newAppointForm.controls['IDLenghtAppoint'].dirty || newAppointForm.controls['IDLenghtAppoint'].touched)" class="alert">
+                            Length is required
+                        </mat-error>
+                    </div>
+                </td>
+
+            </tr>
+            <tr>
+                <div>
+                    
+                </div>
+            </tr>
+        </table>
+    </form>
+    <!--Add Refresh Cost-->
+    <div>
+        <button mat-raised-button (click)="getAppointmentCost()">Refresh Cost</button>
+    </div>
+
+    <div> <hr class="solid"> </div>
+
+    <div *ngIf="!newAppointForm.controls['IDLenghtAppoint'].invalid">
+        <table cellspacing="5">
+            <tr>
+                <td><div class="col col-md-4">Style: <b>{{stCostStyle | currency}}</b></div></td>
+                <td><div class="col col-md-4">Touch Up: <b>{{totalTouchUpCost | currency}}</b></div></td>
+                <td><div class="col col-md-4">Size & Length: <b>{{totalExtraSizeLengthCost | currency}}</b></div></td>
+                <td><div class="col col-md-4">Take Down: <b>{{stPriceTakeOffHair | currency}}</b></div></td>
+                <td><div class="col col-md-4">Total: <b>{{totalCost | currency}}</b></div></td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<div> <hr class="solid"> </div>
+
+<div mat-dialog-foother>
+    <div class="row md-12">
+        <div class="col md-6" mat-dialog-action [align]="'end'">
+            <button  mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+        </div>
+        <div class="col md-6" mat-dialog-action [align]="'left'">
+            <button style="margin-left: 5px;" mat-raised-button color="primary" name="btSave" [disabled]="newAppointForm.invalid" (click)="ConfirmAppointment()">Confirm</button>
+        </div>
+    </div>
+</div>

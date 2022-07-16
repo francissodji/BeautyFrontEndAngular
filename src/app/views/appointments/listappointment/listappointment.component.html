@@ -1,0 +1,98 @@
+<div mat-dialog-content>
+    <div class="container">
+        <form [formGroup]="appointSearch">
+            <table>
+                <tr>
+                    <td class="col col-md-4">
+                        <div>
+                            <mat-form-field appearance="outline">
+                                <mat-label> Status </mat-label>
+                                <mat-select formControlName = "AppointStatus" [(ngModel)]="stateAppointSearch">
+                                    <mat-option *ngFor="let appoint of stateAppoint" [value]= "appoint.id" >{{appoint.label}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </td>
+                    <!--
+                    <td class="col col-md-4">
+                        <div>
+                            <mat-form-field color="accent" appearance="outline">
+                                <mat-label>Date - From</mat-label>
+                                <input matInput [matDatepicker]="DateAppoint" formControlName = "DateBeginSearch" name="DateBeginSearch" [(ngModel)]="dateBeginSearch">
+                                <mat-datepicker-toggle matSuffix [for]="DateAppoint"></mat-datepicker-toggle>
+                                <mat-datepicker #DateAppoint></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </td>
+                    
+                    <td class="col col-md-4">
+                        <div>
+                            <mat-form-field color="accent" appearance="outline">
+                                <mat-label>Date - To</mat-label>
+                                <input matInput [matDatepicker]="DateAppoint" formControlName = "DateEndSearch" name="DateEndSearch" [(ngModel)]="dateEndSearch">
+                                <mat-datepicker-toggle matSuffix [for]="DateAppoint"></mat-datepicker-toggle>
+                                <mat-datepicker #DateAppoint></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </td>
+                    -->
+                    <td>
+                        <div>
+                            <button style="margin-left: 5px;" mat-raised-button color="primary" name="btSave" (click)="searchAppointment()">Search</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<div class="container">  <hr class="solid"> </div>
+<div>
+    <div class="container" >
+        <div>
+            <table class="table table-hover table-dark">
+                <thead class="thead-light"> 
+                    <tr>
+                        <td>Client </td>
+                        <td>Date </td>
+                        <td>Time</td>
+                        <td>Style</td>
+                        <td>Size</td>
+                        <td>Length</td>
+                        <td>Service</td>
+                        <td>Take Down</td>
+                        <td>Total Cost</td>
+                        <td align="center" *ngIf="stateAppointSearch =='N'">Action</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let appoint of searchedAppoints">
+                        <td>{{ appoint.clientFullName }}</td>
+                        <td>{{ appoint.dateAppoint | date: 'MM/dd/yyyy'}}</td>
+                        <td>{{ appoint.dateAppoint | date: 'h:mm a'}}</td>
+                        <td>{{ appoint.desigStyle }}</td>
+                        <td>{{ appoint.titleSize }}</td>
+                        <td>{{ appoint.titleExtrat }}</td>
+                        <td>{{ appoint.serviceTitle }}</td>
+                        <td align="center">{{ appoint.takeDownTitle }}</td>
+                        <td>{{ appoint.totalCostBraiding | currency }}</td>
+
+                        <td align="center" *ngIf="stateAppointSearch =='N'">
+                            <button mat-raised-button color="warm" (click)="confirmAppointmentDialog(appoint)">Confirm</button>
+                            <!--<a [routerLink] = "['/editadminmedecine', appoint.idAppoint]" class="btn btn-primary">Confirm Appoint.</a>-->
+                        </td>
+
+                        <td align="center" *ngIf="stateAppointSearch =='N'">
+                            <button mat-raised-button color="secondary" (click)="cancelAppointmentDialog(appoint)">Cancel</button>
+                        </td>
+
+                        <td align="center" *ngIf="stateAppointSearch =='F'">
+                            <button mat-raised-button color="secondary" (click)="jobDoneAppointmentDialog(appoint)">Job Done</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
