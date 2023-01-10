@@ -1,0 +1,48 @@
+<!--breadcrumb-->
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+	<div class="breadcrumb-title pe-3">Length</div>
+	<div class="ps-3">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb mb-0 p-0">
+				<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+				</li>
+				<li class="breadcrumb-item active" aria-current="page">Add New Length</li>
+			</ol>
+		</nav>
+	</div>
+</div>
+
+<!--end breadcrumb-->
+<div class="row">
+	<div class="col-lg-8 mx-auto">
+		<div class="card">
+			<div class="card-header py-3 bg-transparent">
+				<h5 class="mb-0">Update Length</h5>
+			</div>
+			<div class="card-body">
+				<div class="border p-3 rounded">
+					<form class="row g-3" [formGroup]="editLengthForm">
+						<div class="form-group">
+							<label class="form-label">Length title</label>
+							<input type="text" class="form-control" formControlName = "titleLength" name="titleLength" [(ngModel)]="lengthFound.titleLength"> <!-- Can also use '[value]="lengthFound.titleLength"' to retrieve the data-->
+							<div *ngIf="editLengthForm.controls['titleLength'].invalid && (editLengthForm.controls['titleLength'].dirty || editLengthForm.controls['titleLength'].touched)">
+								<div *ngIf="editLengthForm.controls['titleLength'].errors?.required" id="validationServer03Feedback" class="invalid-feedback">Length title is required.</div>
+							</div>
+						</div>
+						
+						<div class="col-12">
+							<button class="btn btn-primary px-4" [disabled]="editLengthForm.invalid" (click)="updateLength()">Update</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="card-footer">
+				<div class="col-12" [align]="'end'">
+				  <a [routerLink]="['/view/settings/length']" class="btn btn-dark px-5 rounded-0">Back to list</a>
+				</div>
+			</div>
+      </div>
+	</div>
+</div>
+<!--end row-->

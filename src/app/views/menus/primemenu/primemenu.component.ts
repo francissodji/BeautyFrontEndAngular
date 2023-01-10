@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { User } from 'src/models/User';
+import { User } from 'src/app/data/models/User';
 
 @Component({
   selector: 'app-primemenu',

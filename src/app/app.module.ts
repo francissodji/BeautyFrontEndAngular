@@ -34,16 +34,21 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 
 
-import { NewcustomerComponent } from './views/customers/newcustomer/newcustomer.component';
-import { ListallcustomerComponent } from './views/customers/listallcustomer/listallcustomer.component';
-import { NewappointmentComponent } from './views/appointments/newappointment/newappointment.component';
+//import { NewcustomerComponent } from './views/customers/newcustomer/newcustomer.component';
+//import { ListallcustomerComponent } from './views/customers/listallcustomer/listallcustomer.component';
+import { NewappointmentComponent } from './views/booking/custom/appointments/newappointment/newappointment.component';
 import { AthomeComponent } from './views/menus/athome/athome.component';
-import { ListappointmentComponent } from './views/appointments/listappointment/listappointment.component';
-import { ConfirmappointmentComponent } from './views/appointments/confirmappointment/confirmappointment.component';
-import { CancelappointmentComponent } from './views/appointments/cancelappointment/cancelappointment.component';
-import { ListallappointnewstateComponent } from './views/appointments/listallappointnewstate/listallappointnewstate.component';
-import { JobdoneappointmentComponent } from './views/appointments/jobdoneappointment/jobdoneappointment.component';
-import { LoginComponent } from './views/login/login.component';
+import { ListappointmentComponent } from './views/booking/custom/appointments/listappointment/listappointment.component';
+import { ConfirmappointmentComponent } from './views/booking/custom/appointments/confirmappointment/confirmappointment.component';
+import { CancelappointmentComponent } from './views/booking/custom/appointments/cancelappointment/cancelappointment.component';
+import { ListallappointnewstateComponent } from './views/booking/custom/appointments/listallappointnewstate/listallappointnewstate.component';
+import { JobdoneappointmentComponent } from './views/booking/custom/appointments/jobdoneappointment/jobdoneappointment.component';
+import { LoginComponent } from './views/auth/login/login.component';
+import { NewcustomerComponent } from './views/client/newcustomer/newcustomer.component';
+import { ListallcustomerComponent } from './views/client/listallcustomer/listallcustomer.component';
+import { RegisterComponent } from './views/auth/register/register.component';
+import { FulllayoutComponent } from './layouts/fulllayout/fulllayout.component';
+
 
 
 @NgModule({
@@ -58,7 +63,9 @@ import { LoginComponent } from './views/login/login.component';
     CancelappointmentComponent,
     ListallappointnewstateComponent,
     JobdoneappointmentComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    FulllayoutComponent
   ],
   imports: [
     BrowserModule,

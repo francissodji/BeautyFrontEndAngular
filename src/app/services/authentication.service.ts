@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Login } from 'src/models/Login';
-import { User } from 'src/models/User';
+import { Login } from 'src/app/data/models/Login';
+import { User } from 'src/app/data/models/User';
 import { ApicallService } from './apicall.service';
 import { map } from 'rxjs/operators';
 
@@ -20,6 +20,7 @@ export class AuthenticationService {
 
   login(loginAuthent:Login): any {
 
+    /*
     this.apiCall.login_Post(loginAuthent)
       .pipe(
         map(user =>{
@@ -31,7 +32,7 @@ export class AuthenticationService {
           
         })
       )
-
+      */
   }
 
   isLoggedIn(){

@@ -1,0 +1,23 @@
+<div class="row" style="margin-bottom:15px;">
+    <div class="col-12">
+        <div class="card-body">
+            <div class="card-title">
+                <h6 class="mb-0">Upload image</h6>
+            </div>
+            <hr/>
+            <input id="image-uploadify" type="file" #file name="pictureStyle" (change)="uploadFilePerso(file.files)"
+                 accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple>
+        </div>
+
+      <!--<input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)">-->
+      <!--<button type="button" class="btn btn-success" >Upload File</button>-->
+    </div>
+    <div class="col-12">
+      <span class="upload" *ngIf="progress > 0">
+        {{progress}}%
+      </span>
+      <span class="upload" *ngIf="message">
+        {{message}}
+      </span>
+    </div>
+</div>

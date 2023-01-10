@@ -4,16 +4,18 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ApicallService } from 'src/app/services/apicall.service';
 import { GeneralproceduresService } from 'src/app/services/generalprocedures.service';
-import { Appointment } from 'src/models/Appointment';
-import { Customer } from 'src/models/Customer';
-import { NewappointmentComponent } from '../../appointments/newappointment/newappointment.component';
-import { NewcustomerComponent } from '../../customers/newcustomer/newcustomer.component';
+import { Appointment } from 'src/app/data/models/Appointment';
+import { Customer } from 'src/app/data/models/Customer';
+import { NewappointmentComponent } from '../../booking/custom/appointments/newappointment/newappointment.component';
+//import { NewcustomerComponent } from '../../customers/newcustomer/newcustomer.component';
 
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import { Style } from 'src/models/Style';
-import { ConfirmappointmentComponent } from '../../appointments/confirmappointment/confirmappointment.component';
+//import { Style } from 'src/models/Styles';
+import { ConfirmappointmentComponent } from '../../booking/custom/appointments/confirmappointment/confirmappointment.component';
+import { NewcustomerComponent } from '../../client/newcustomer/newcustomer.component';
+import { Styles } from 'src/app/data/models/Styles';
 
 
 @Component({
@@ -28,7 +30,7 @@ export class AthomeComponent implements OnInit {
   clientCellNumToSearch: any;
   clientFullName: string = ''
   theConnectedClientId: number = 0;
-  theStyle: Style = new Style();
+  theStyle: Styles = new Styles();
   libelStyle : string = '';
   welcome: string = 'Welcome';
   isconnected: boolean = false;
@@ -61,6 +63,7 @@ export class AthomeComponent implements OnInit {
     if(this.clientCellNumToSearch == ''){
       this.ngOnInit()
     }else{
+      /*
       this._apiCall.GetClientByCellPhone_Get(this.clientCellNumToSearch).subscribe({
         next:(result) => { this.theFoundCustomer = result;
                           this.clientFullName = this.theFoundCustomer.fnameClient+' '+this.theFoundCustomer.mnameClient+' '+this.theFoundCustomer.lnameClient
@@ -73,13 +76,14 @@ export class AthomeComponent implements OnInit {
         
         error:() => {alert("A client with phone number "+this.clientCellNumToSearch+" does not exist.")}
       })
+      */
     }
   }
 
   
   //open Registration
   getCustomerOpenAppointment(){
-
+    /*
     if (this.theConnectedClientId > 0) {
       this._apiCall.GetClientOpenAppointByIdClientAndStateAppoint(this.theConnectedClientId,'N').subscribe({
         next:(result) => {
@@ -92,6 +96,7 @@ export class AthomeComponent implements OnInit {
         error:(error) => {alert("Error while loading the record. Impossible to continue.");}
       })
     } 
+    */
   }
 
   //myStyle: Style = new Style();
@@ -101,7 +106,7 @@ export class AthomeComponent implements OnInit {
       this._apiCall.GetStyleByIdStyle(idStyle).subscribe({
         next:(res)=>{
           this.theStyle = res;
-          this.libelStyle = this.theStyle.desigStyle;
+          this.libelStyle = this.theStyle.titleStyle;
         }
       })
     } 

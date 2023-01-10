@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
-import { Style } from 'src/models/Style';
+import { Styles } from 'src/app/data/models/Styles';
 import { ApicallService } from './apicall.service';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { ApicallService } from './apicall.service';
 })
 export class GeneralproceduresService {
 
-  theStyle: Style = new Style();
+  theStyle: Styles = new Styles();
   libelStyle: string = '';
 
   myDateValu: Date = new Date();

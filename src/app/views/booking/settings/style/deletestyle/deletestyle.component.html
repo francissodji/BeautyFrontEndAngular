@@ -1,0 +1,43 @@
+
+<!--end breadcrumb-->
+<div class="row">
+	<div class="col-lg-8 mx-auto">
+		<div class="card">
+			<div class="card-header py-3 bg-transparent">
+				<h5 class="mb-0">Delete Style</h5>
+			</div>
+			<div class="card-body">
+				<div class="border p-3 rounded">
+					<form >
+						<div class="form-group">
+                            <tr>
+                                <th>Style title:   </th>
+                                <td>{{styleFound.titleStyle}}</td>
+                            </tr>
+                            <tr>
+                                <th>Description:   </th>
+                                <td>{{styleFound.descriptStyle}}</td>
+                            </tr>
+                            <tr>
+                                <th>Hair Provided ?:   </th>
+                                <td>{{styleFound.isHairProvided}}</td>
+                            </tr>
+							<tr>
+                                <td><img src="{{styleFound.pictureStyle}}" height="100px" width="80px"></td>
+                            </tr>
+						</div>
+					</form>
+				</div>
+                <div class="col-12">
+                    <button class="btn btn-danger px-5 px-4" (click)="deleteStyle()">Delete</button>
+                </div>
+			</div>
+            <div class="card-footer">
+                
+				<div class="col-12" [align]="'end'">
+				  <a [routerLink]="['/view/settings/style']" class="btn btn-dark px-5 rounded-0">Back to list</a>
+				</div>
+			</div>
+        </div>
+	</div>
+</div>
