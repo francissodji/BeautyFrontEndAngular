@@ -33,6 +33,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 
+import * as $ from 'jquery';
 
 //import { NewcustomerComponent } from './views/customers/newcustomer/newcustomer.component';
 //import { ListallcustomerComponent } from './views/customers/listallcustomer/listallcustomer.component';
@@ -47,7 +48,7 @@ import { LoginComponent } from './views/auth/login/login.component';
 import { NewcustomerComponent } from './views/client/newcustomer/newcustomer.component';
 import { ListallcustomerComponent } from './views/client/listallcustomer/listallcustomer.component';
 import { RegisterComponent } from './views/auth/register/register.component';
-import { FulllayoutComponent } from './layouts/fulllayout/fulllayout.component';
+import { FullLayoutComponent } from './layouts/full-layout/full-layout.component';
 
 
 
@@ -65,7 +66,7 @@ import { FulllayoutComponent } from './layouts/fulllayout/fulllayout.component';
     JobdoneappointmentComponent,
     LoginComponent,
     RegisterComponent,
-    FulllayoutComponent
+    FullLayoutComponent,
   ],
   imports: [
     BrowserModule,

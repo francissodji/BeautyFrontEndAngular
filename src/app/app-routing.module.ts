@@ -8,6 +8,9 @@ import { LoginComponent } from './views/auth/login/login.component';
 import { AthomeComponent } from './views/menus/athome/athome.component'; 
 
 import { PagenotfoundComponent } from './views/menus/pagenotfound/pagenotfound.component';
+import { FullLayoutComponent } from './layouts/full-layout/full-layout.component';
+import { ListcatalogComponent } from './views/booking/settings/catalog/listcatalog/listcatalog.component';
+import { Full_ROUTES } from './shared/routes/full-layout.routes';
 //import { FulllayoutComponent } from './layouts/fulllayout/fulllayout.component';
 
 const BsamsRoutes: Routes = [
@@ -20,14 +23,15 @@ const BsamsRoutes: Routes = [
   { path: 'home', component: AthomeComponent },
 
   { path: 'login', component: LoginComponent },
+
+  { path: 'catalog', component: ListcatalogComponent },
   //{ path: 'catalog', component: ListcatalogComponent },
 
   { path: 'appointmbystatus', component: ListappointmentComponent },
   { path: 'cancelappoint', component: CancelappointmentComponent },
   { path: 'confirmappoint', component: ConfirmappointmentComponent },
 
-  { path: 'main', loadChildren:()=> import('./views/menus/primemenu/primemenu.component').then(a=>a.PrimemenuComponent), canActivate:[AuthenticationGuard] },
-
+  { path: 'dock', component: FullLayoutComponent, data: { title: 'full Views' }, children: Full_ROUTES },
 
 
   { path: '**', component: PagenotfoundComponent }

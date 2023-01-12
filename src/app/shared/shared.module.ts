@@ -5,7 +5,7 @@ import { HeaderbarComponent } from './component/headerbar/headerbar.component';
 //import { FootbarComponent } from './component/footbar/footbar.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { FooterComponent } from './component/footer/footer.component';
-import { UploadComponent } from './component/upload/upload.component';
+//import { UploadComponent } from '../views/booking/settings/upload/upload.component';
 
 
 @NgModule({
@@ -14,8 +14,8 @@ import { UploadComponent } from './component/upload/upload.component';
     HeaderbarComponent,
     //FootbarComponent,
     NavbarComponent,
-    FooterComponent,
-    UploadComponent
+    FooterComponent
+    //UploadComponent
   ],
   imports: [
     CommonModule

@@ -12,8 +12,10 @@ import { ApicallService } from 'src/app/services/apicall.service';
 })
 export class EditlengthComponent implements OnInit {
 
+  idCompany: any = sessionStorage.getItem("idcompany")
+
   editLengthForm! : FormGroup;
-  selectedIdLength: string | undefined;
+  selectedIdLength: any;
   lengthFound: Lengths = new Lengths();
   lengthToUpdate: Lengths = new Lengths();
 
@@ -48,7 +50,7 @@ export class EditlengthComponent implements OnInit {
   }
 
   editSelectedLength(){
-    /*
+    
     this.selectedIdLength = this._activatedroute.snapshot.paramMap.get("idlength");
     //console.log("SELECTED ID ==>"+this.selectedIdLength);
     if(+this.selectedIdLength > 0){
@@ -60,7 +62,7 @@ export class EditlengthComponent implements OnInit {
         error:(error)=>{}
       })
     }
-    */
+    
 
   }
 
@@ -68,7 +70,7 @@ export class EditlengthComponent implements OnInit {
     if(this.editLengthForm.valid){
       this.lengthToUpdate.titleLength = this.lengthFound.titleLength;
       this.lengthToUpdate.isDefault = false;
-      this.lengthToUpdate.idCompany = +sessionStorage.getItem("idcompany").to;
+      this.lengthToUpdate.idCompany = this.idCompany;
 
       this._apicallservice.UpdateLength(+this.selectedIdLength, this.lengthToUpdate)
       .subscribe({

@@ -16,6 +16,16 @@ import { ListlengthComponent } from './length/listlength/listlength.component';
 import { ListsizeComponent } from './size/listsize/listsize.component';
 import { AddcatalogComponent } from './catalog/addcatalog/addcatalog.component';
 import { ListcatalogComponent } from './catalog/listcatalog/listcatalog.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { UploadComponent } from './upload/upload.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 
@@ -36,10 +46,21 @@ import { ListcatalogComponent } from './catalog/listcatalog/listcatalog.componen
     ListlengthComponent,
     ListsizeComponent,
     AddcatalogComponent,
-    ListcatalogComponent
+    ListcatalogComponent,
+    UploadComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    HttpClientModule,
+    FlexLayoutModule,
+    ReactiveFormsModule,
+    MatGridListModule,
+    MatCardModule
   ]
 })
 export class SettingsModule { }

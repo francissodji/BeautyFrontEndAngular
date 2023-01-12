@@ -12,13 +12,13 @@ export const ROUTES: RouteInfo[] = [
     },
 
     {
-        path: 'view', title: 'Settings', icon: 'bi bi-gear"', class: 'sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
-            { path: '/view/settings/length', title: 'Length', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-            { path: '/view/settings/size', title: 'Size', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-            { path: '/view/settings/style', title: 'Style', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-            { path: '/view/settings/catalog', title: 'Catalog', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-            { path: '/view/settings/pricing', title: 'Pricing', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-            { path: '/view/settings/setting', title: 'Setting', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+        path: 'dock', title: 'Settings', icon: 'bi bi-gear"', class: 'sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
+            { path: '/dock/booksetting/length', title: 'Length', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+            { path: '/dock/booksetting/size', title: 'Size', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+            { path: '/dock/booksetting/style', title: 'Style', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+            { path: '/dock/booksetting/catalog', title: 'Catalog', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+            { path: '/dock/booksetting/pricing', title: 'Pricing', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+            { path: '/dock/booksetting/setting', title: 'Setting', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
             /*
             { path: '/dashboard/analytics', title: 'Analytics', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
             { path: '/dashboard/project-management', title: 'Project Management', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },

@@ -3,11 +3,11 @@ import { NavigationEnd, Router } from '@angular/router';
 import { SidebarService } from 'src/app/shared/component/sidebar/sidebar.service';
 
 @Component({
-  selector: 'app-fulllayout',
-  templateUrl: './fulllayout.component.html',
-  styleUrls: ['./fulllayout.component.css']
+  selector: 'app-full-layout',
+  templateUrl: './full-layout.component.html',
+  styleUrls: ['./full-layout.component.css']
 })
-export class FulllayoutComponent implements OnInit {
+export class FullLayoutComponent implements OnInit {
 
   constructor(public sidebarservice: SidebarService,
     private router: Router) { }

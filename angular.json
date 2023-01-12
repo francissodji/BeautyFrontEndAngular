@@ -33,7 +33,20 @@
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+
+              "./node_modules/alertifyjs/build/alertify.min.js",
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/@popperjs/core/dist/umd/popper.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "./node_modules/apexcharts/dist/apexcharts.min.js",
+              "./node_modules/easy-pie-chart/dist/jquery.easypiechart.min.js",
+              "./node_modules/peity/jquery.peity.min.js",
+              "src/assets/plugins/jvector-map/jquery-jvectormap-2.0.2.min.js",
+              "src/assets/plugins/jvector-map/jquery-jvectormap-world-mill-en.js",
+              "src/assets/plugins/datatable/js/jquery.dataTables.min.js",
+              "src/assets/plugins/datatable/js/dataTables.bootstrap5.min.js",
+              "src/assets/vendor/pace/pace.min.js"
             ]
           },
           "configurations": {

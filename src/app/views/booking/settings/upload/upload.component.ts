@@ -11,7 +11,7 @@ export class UploadComponent implements OnInit {
 
   idCompany: any = localStorage.getItem("idcompany");
   
-  progress: number | undefined;
+  progress: any;
   message: string | undefined;
   response: { dbPath: ''; } | undefined;
   @Output() public onUploadFinished = new EventEmitter();

@@ -25,9 +25,11 @@
 						<div class="form-group">
 							<label class="form-label">Length title</label>
 							<input type="text" class="form-control" formControlName = "titleSize" name="titleSize" [(ngModel)]="sizeFound.titleSize"> <!-- Can also use '[value]="lengthFound.titleLength"' to retrieve the data-->
+							<!--
 							<div *ngIf="editSizeForm.controls['titleSize'].invalid && (editSizeForm.controls['titleSize'].dirty || editSizeForm.controls['titleSize'].touched)">
-								<div *ngIf="editLengthForm.controls['titleSize'].errors?.required" id="validationServer03Feedback" class="invalid-feedback">Size title is required.</div>
+								<div *ngIf="editSizeForm.controls['titleSize'].errors?.[required]" id="validationServer03Feedback" class="invalid-feedback">Size title is required.</div>
 							</div>
+							-->
 						</div>
 						
 						<div class="col-12">

@@ -18,9 +18,11 @@
                                     <option *ngFor="let style of listStyles" [value]= "style.idStyle">{{style.titleStyle}}</option>
                                 </select>
 
+								<!--
                                 <div *ngIf="newCatalogForm.controls['idStyle'].invalid && (newCatalogForm.controls['idStyle'].dirty || newCatalogForm.controls['idStyle'].touched)">
                                     <div *ngIf="newCatalogForm.controls['idStyle'].errors?.required" id="validationServer03Feedback" class="invalid-feedback">Style is required.</div>
                                 </div>
+								-->
                             </div>
                         </div>
 
@@ -32,9 +34,11 @@
                                     <option *ngFor="let style of listStyles" [value]= "style.idStyle">{{style.titleStyle}}</option>
                                 </select>
 
+								<!--
                                 <div *ngIf="newCatalogForm.controls['idStyle'].invalid && (newCatalogForm.controls['idStyle'].dirty || newCatalogForm.controls['idStyle'].touched)">
                                     <div *ngIf="newCatalogForm.controls['idStyle'].errors?.required" id="validationServer03Feedback" class="invalid-feedback">Style is required.</div>
                                 </div>
+								-->
                             </div>
                         </div>
 
