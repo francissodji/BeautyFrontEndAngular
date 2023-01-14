@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SidebarService } from '../sidebar/sidebar.service';
+ 
 
 @Component({
   selector: 'app-navbar',
@@ -9,8 +10,8 @@ import { SidebarService } from '../sidebar/sidebar.service';
 })
 export class NavbarComponent implements OnInit {
 
-  nameUserConnected: string = '' ;
-  roleUserConnected: string = '';
+  nameUserConnected: any ;
+  roleUserConnected: any;
 
     constructor(public sidebarservice: SidebarService, private _router: Router) { }
         
@@ -27,8 +28,8 @@ export class NavbarComponent implements OnInit {
     }
 
     ngOnInit() {
-      //this.nameUserConnected = sessionStorage.getItem('name');
-      //this.roleUserConnected = sessionStorage.getItem('role');
+      this.nameUserConnected = localStorage.getItem('name');
+      this.roleUserConnected = localStorage.getItem('role');
 
       /* Search Bar */
       $(document).ready(function () {
@@ -40,6 +41,7 @@ export class NavbarComponent implements OnInit {
           })
           
       });
+
 
     }
 

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -44,17 +44,18 @@ import { ConfirmappointmentComponent } from './views/booking/custom/appointments
 import { CancelappointmentComponent } from './views/booking/custom/appointments/cancelappointment/cancelappointment.component';
 import { ListallappointnewstateComponent } from './views/booking/custom/appointments/listallappointnewstate/listallappointnewstate.component';
 import { JobdoneappointmentComponent } from './views/booking/custom/appointments/jobdoneappointment/jobdoneappointment.component';
-import { LoginComponent } from './views/auth/login/login.component';
 import { NewcustomerComponent } from './views/client/newcustomer/newcustomer.component';
 import { ListallcustomerComponent } from './views/client/listallcustomer/listallcustomer.component';
-import { RegisterComponent } from './views/auth/register/register.component';
 import { FullLayoutComponent } from './layouts/full-layout/full-layout.component';
+import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
 
 
 
 @NgModule({
   declarations: [
     PrimemenuComponent,
+    AppComponent,
     NewcustomerComponent,
     ListallcustomerComponent,
     NewappointmentComponent,
@@ -64,9 +65,8 @@ import { FullLayoutComponent } from './layouts/full-layout/full-layout.component
     CancelappointmentComponent,
     ListallappointnewstateComponent,
     JobdoneappointmentComponent,
-    LoginComponent,
-    RegisterComponent,
-    FullLayoutComponent,
+    FullLayoutComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -96,10 +96,14 @@ import { FullLayoutComponent } from './layouts/full-layout/full-layout.component
     NgxMatDatetimePickerModule,
     NgxMaterialTimepickerModule,
     NgxMatTimepickerModule,
-    MatMenuModule
+    MatMenuModule,
+    SharedModule
   
+    
   ],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
-  bootstrap: [PrimemenuComponent]
+  bootstrap: [AppComponent]
+  //bootstrap: [PrimemenuComponent]
 })
 export class AppModule { }

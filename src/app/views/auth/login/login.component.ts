@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApicallService } from 'src/app/services/apicall.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
@@ -14,6 +14,8 @@ import { User } from 'src/app/data/models/User';
 })
 export class LoginComponent implements OnInit {
 
+  hide = true;
+  
   loginForm: FormGroup = new FormGroup({});
   loading: boolean = false;
   submitted: boolean = false;
@@ -33,7 +35,7 @@ export class LoginComponent implements OnInit {
     ngOnInit(): void {
     
       this.loginForm = this._formBuilder.group({
-        username: ['', Validators.required],
+        username: ['', Validators.required, EmailValidator],
         password: ['', Validators.required]
       });
     } 
